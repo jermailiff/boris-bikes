@@ -4,5 +4,7 @@ require_relative 'bike.rb'
 
 
 station = DockingStation.new
+puts station.capacity
 
-station.capacity = 20
+st = DockingStation.new(40)
+puts st.capacity
