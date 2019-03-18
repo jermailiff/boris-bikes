@@ -6,12 +6,15 @@ require_relative 'bike.rb'
 station = DockingStation.new
 puts station.capacity
 
-bike = Bike.new
+bike1 = Bike.new
 
-puts bike.report_broken
-puts bike.broken?
+bike1.report_broken
+
+puts station.dock bike1
+
+station.release_bike
+
 # fix broken so it shows as a property
-puts station.dock bike
 
 
 

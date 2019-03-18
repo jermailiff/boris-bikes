@@ -43,6 +43,15 @@ describe DockingStation do
     #     end
     # end
 
+    describe '#release_bike' do
+        it 'raises an error when broken bikes are available' do
+            bike = Bike.new
+            bike.report_broken
+            subject.dock bike 
+            expect {subject.release_bike}.to raise_error 'Broken bikes unavailable'
+        end
+    end
+
     # describe '#dock' do
     #     it 'raises an error when full' do
     #         subject.capacity.times {subject.dock Bike.new}
