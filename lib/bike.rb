@@ -1,5 +1,21 @@
 class Bike
+    
+    attr_accessor :broken
+
+    def initialize
+        @broken = true
+    end
+
     def working?
         true
     end
+
+    def report_broken
+        @broken = true
+    end
+
+    def broken?
+        @broken
+    end
+
 end

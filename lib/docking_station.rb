@@ -3,7 +3,7 @@ require_relative 'bike'
 class DockingStation
     DEFAULT_CAPACITY = 20
 
-    attr_accessor :capacity
+    attr_accessor :capacity, :bikes
 
     def initialize (capacity=DEFAULT_CAPACITY)
         @capacity = capacity
@@ -25,7 +25,6 @@ class DockingStation
     end
     
     private
-    attr_accessor :bikes
 
     def empty?
         @bikes.empty?
