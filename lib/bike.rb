@@ -3,7 +3,7 @@ class Bike
     attr_accessor :broken
 
     def initialize
-        @broken
+        @broken = false
     end
 
     def working?

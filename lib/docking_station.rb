@@ -15,13 +15,9 @@ class DockingStation
     end
 
     def release_bike
-        if empty?
-            fail 'No bikes available'
-        elsif broken?
-            fail 'Broken bikes unavailable'
-        else
-            @bikes.pop
-        end
+        fail 'No bikes available' if empty?
+        fail 'Broken bikes unavailable' if broken_bike
+        release_working_bike
     end
 
     def dock(bike)
@@ -30,6 +26,19 @@ class DockingStation
     end
     
     private
+
+    def working_bike
+        @bikes.reject {|bikes| bikes.broken?}
+    end
+
+    def broken_bike
+        @bikes.all? {|bikes| bikes.broken?}
+    end
+
+    def release_working_bike
+        bike = working_bike
+        @bikes.pop
+    end
 
     def empty?
         @bikes.empty?
@@ -40,3 +49,5 @@ class DockingStation
     end
 
 end
+
+# Continue fixing broken bikes unavailable
