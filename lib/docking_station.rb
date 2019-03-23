@@ -50,4 +50,3 @@ class DockingStation
 
 end
 
-# Continue fixing broken bikes unavailable

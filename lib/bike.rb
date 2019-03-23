@@ -7,6 +7,7 @@ class Bike
     end
 
     def working?
+        fail 'Bike is broken' if @broken==true
         true
     end
 
