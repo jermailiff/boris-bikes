@@ -10,10 +10,6 @@ class DockingStation
         @bikes = []
     end
 
-    def capacity
-        @capacity
-    end
-
     def release_bike
         fail 'No bikes available' if empty?
         fail 'Broken bikes unavailable' if all_broken_bike
