@@ -16,7 +16,7 @@ class DockingStation
 
     def release_bike
         fail 'No bikes available' if empty?
-        fail 'Broken bikes unavailable' if broken_bike
+        fail 'Broken bikes unavailable' if all_broken_bike
         release_working_bike
     end
 
@@ -25,14 +25,27 @@ class DockingStation
         @bikes << bike
     end
     
+    def release_broken_bike
+        release_broken
+    end
+
     private
 
     def working_bike
         @bikes.reject {|bikes| bikes.broken? == true}
     end
 
-    def broken_bike
+    def all_broken_bike
         @bikes.all? {|bikes| bikes.broken? == true}
+    end
+
+    def broken_bike
+        @bikes.select {|bikes| bikes.broken? == true}
+    end
+    
+    def release_broken
+        bike = broken_bike
+        @bikes.pop
     end
 
     def release_working_bike
