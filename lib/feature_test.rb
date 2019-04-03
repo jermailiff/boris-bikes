@@ -14,8 +14,8 @@ bike1.report_broken
 station.dock bike1
 station.dock bike2
 
-puts station.bikes
-
+station.release_bike
+station.release_bike
 
 
 
