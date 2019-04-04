@@ -19,4 +19,7 @@ class Bike
         @broken
     end
 
+    def any?
+    end
+    
 end

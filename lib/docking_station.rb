@@ -28,15 +28,15 @@ class DockingStation
     private
 
     def working_bike
-        @bikes.reject {|bikes| bikes.broken? == true}
+        @bikes.reject {|bike| bike.broken? == true}
     end
 
     def all_broken_bike
-        @bikes.all? {|bikes| bikes.broken? == true}
+        @bikes.all? {|bike| bike.broken? == true}
     end
 
     def broken_bike
-        @bikes.select {|bikes| bikes.broken? == true}
+        @bikes.select {|bike| bike.broken? == true}
     end
     
     def release_broken

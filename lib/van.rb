@@ -1,23 +1,29 @@
 require_relative 'bike'
 
 class Van
-    attr_accessor :bikes
+    attr_accessor :bikes, :capacity
     
+    DEFAULT_CAPACITY = 20
+
     def initialize
         @bikes = []
+        @capacity = DEFAULT_CAPACITY
     end
 
-    def collect_bike(bike)
-        fail 'Bike is not broken' if all_bike_working
+    def collect(bike)
+        fail 'Cannot collect working bikes' unless broken(bike)
+        fail 'Van is full' if full?
         @bikes << bike
-    end
+    end        
 
     private
 
-    def all_bike_working
-        @bikes.all? {|bikes| bike.working? == true}
+    def broken(bike)
+        bike.broken? == true
+    end
+
+    def full?
+        @bikes.count >= @capacity
     end
 
 end
-
-# fix broken errors
