@@ -20,10 +20,6 @@ class DockingStation
         fail 'Docking station full' if full?
         @bikes << bike
     end
-    
-    def release_broken_bike
-        release_broken
-    end
 
     private
 
@@ -37,11 +33,6 @@ class DockingStation
 
     def broken_bike
         @bikes.select {|bike| bike.broken? == true}
-    end
-    
-    def release_broken
-        bike = broken_bike
-        @bikes.pop
     end
 
     def release_working_bike

@@ -7,18 +7,29 @@ require_relative 'van.rb'
 station = DockingStation.new
 
 bike = Bike.new
+bike1 = Bike.new
+bike2 = Bike.new
 
 bike.report_broken
+bike1.report_broken
+bike2.report_broken
 
-station.dock bike
+station.dock bike 
+station.dock bike1
+station.dock bike2
 
-station.release_broken_bike
+# station.release_broken_bike
 
 van = Van.new
 
-van.collect bike
+van.accept_broken_only(station)
 
-# van.drop_off_bike
+puts station.bikes
+van.bikes
+
+# van.collect station
+
+# van.drop_off bike
 
 # garage = Garage.new
 

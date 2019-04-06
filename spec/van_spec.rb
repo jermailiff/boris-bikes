@@ -2,23 +2,22 @@ require 'van'
 
 describe Van do
     
-    it 'collects only broken bikes' do
-        bike = double(:bike, broken?: true)
-        expect(subject.collect(bike)).to eq [bike]
-    end
+    it {is_expected.to respond_to(:collect).with(1).argument}
 
-    describe '#collect(bike)' do
+    describe '#collect(station)' do
         it 'raises an error if the bike is working' do
+            station = DockingStation.new
             bike = double(:bike, broken?: false)
-            expect{subject.collect(bike)}.to raise_error 'Cannot collect working bikes'
+            station.dock bike
+            expect{subject.collect(station)}.to raise_error 'Bikes working at station'
         end
     end
 
-    describe '#collect(bike)' do
+    # Need to figure out how to build test for van capacity
+    describe '#collect(station)' do
         it 'raises an error once full' do
-            bike = double(:bike, broken?: true)
-            subject.capacity.times {subject.collect(bike)}
-            expect{subject.collect(bike)}.to raise_error 'Van is full'
+            subject.capacity
+            expect{subject.collect(station)}.to raise_error 'Van is full'
         end
     end
 

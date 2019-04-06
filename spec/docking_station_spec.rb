@@ -12,12 +12,6 @@ describe DockingStation do
         subject.dock bike
         expect(subject.release_bike).to be bike
     end
-
-    it 'releases broken bikes to maintainer' do
-        bike = double(:bike, broken?: true)
-        subject.dock bike
-        expect(subject.release_broken_bike).to eq bike
-    end
         
     it { is_expected.to respond_to(:dock).with(1).argument }
 
