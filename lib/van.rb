@@ -10,21 +10,21 @@ class Van
         @capacity = DEFAULT_CAPACITY
     end
 
-    def collect(station)
-        fail 'Bikes working at station' if all_bikes_working(station)
+    def collect(bike_holder)
+        fail 'Bikes working at bike_holder' if all_bikes_working(bike_holder)
         fail 'Van is full' if full?
-        accept_broken_only(station)
+        accept_broken_only(bike_holder)
     end
 
     private 
 
-    def all_bikes_working(station)
-        station.bikes.all?{|bike| bike.broken? == false}
+    def all_bikes_working(bike_holder)
+        bike_holder.bikes.all?{|bike| bike.broken? == false}
     end
 
-    def accept_broken_only(station)
-        station.bikes.select {|bike|bike.broken? == true}.each do |bike|
-            station.bikes.pop
+    def accept_broken_only(bike_holder)
+        bike_holder.bikes.select {|bike|bike.broken? == true}.each do |bike|
+            bike_holder.bikes.pop
             @bikes << bike
         end
     end

@@ -18,13 +18,15 @@ describe Van do
         it 'raises an error once full' do
             station = DockingStation.new
             bike = double(:bike, broken?: true)
-            station.capacity.times{station.dock bike}
-            subject.capacity.times {subject.collect(station)}
+            station.capacity.times{
+                station.dock bike
+                subject.collect(station)
+            }
+            station.dock bike
             expect{subject.collect(station)}.to raise_error 'Van is full'
         end
     end
 
-# how to make a test with subject already with fake data in list?
     it 'drops broken bikes to garages to get fixed' do
         station = DockingStation.new
         bike = double(:bike, broken?: true)
@@ -34,5 +36,3 @@ describe Van do
     end
 
 end
-
-# ask Erika what is better, to get the van to method deliver to garage or get the garage to do the method of recieving the bike from the van?
