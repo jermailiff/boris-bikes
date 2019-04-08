@@ -12,6 +12,7 @@ class Van
 
     def collect(station)
         fail 'Bikes working at station' if all_bikes_working(station)
+        fail 'Van is full' if full?
         accept_broken_only(station)
     end
 

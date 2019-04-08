@@ -16,7 +16,10 @@ describe Van do
     # Need to figure out how to build test for van capacity
     describe '#collect(station)' do
         it 'raises an error once full' do
-            subject.capacity
+            station = DockingStation.new
+            bike = double(:bike, broken?: true)
+            station.capacity.times{station.dock bike}
+            subject.capacity.times {subject.collect(station)}
             expect{subject.collect(station)}.to raise_error 'Van is full'
         end
     end
