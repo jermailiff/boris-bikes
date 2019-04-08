@@ -1,6 +1,7 @@
 require_relative 'docking_station.rb'
 require_relative 'bike.rb'
 require_relative 'van.rb'
+require_relative 'garage.rb'
 
 
 
@@ -18,27 +19,25 @@ station.dock bike
 station.dock bike1
 station.dock bike2
 
-# station.release_broken_bike
-
 van = Van.new
 
-van.accept_broken_only(station)
+station.bikes
 
-puts station.bikes
-van.bikes
+van.collect station
 
-# van.collect station
+puts van.bikes
+station.bikes
 
-# van.drop_off bike
+garage = Garage.new
 
-# garage = Garage.new
+van.drop_off garage
 
-# garage.collect_bike
+# garage.collect bike
 # garage.fix_bike
-# garage.release_bike
+# garage.release bike
 
-# van.collect_bike
-# van.drop_off_bike
+# van.collect bike
+# van.drop_off station
 
 # station.dock bike
 

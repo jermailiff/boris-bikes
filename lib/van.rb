@@ -23,7 +23,7 @@ class Van
     end
 
     def accept_broken_only(station)
-        station.bikes.select {|bike|bike.broken == true}.each do |bike|
+        station.bikes.select {|bike|bike.broken? == true}.each do |bike|
             station.bikes.pop
             @bikes << bike
         end
