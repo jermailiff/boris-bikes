@@ -11,7 +11,7 @@ class Van
     end
 
     def collect(bike_holder)
-        fail 'Bikes working at bike_holder' if all_bikes_working(bike_holder)
+        fail 'Bikes working at #{bike_holder}' if all_bikes_working(bike_holder)
         fail 'Van is full' if full?
         accept_broken_only(bike_holder)
     end
