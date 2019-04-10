@@ -4,7 +4,4 @@ class Garage
         @bikes = []
     end
 
-    def dock (bike)
-        @bikes << bike
-    end
 end

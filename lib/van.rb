@@ -16,6 +16,13 @@ class Van
         accept_broken_only(bike_holder)
     end
 
+    def drop_off(bike_holder)
+        @bikes.each do |bike|
+            @bikes.pop
+            bike_holder.bikes << bike
+        end
+    end
+
     private 
 
     def all_bikes_working(bike_holder)
@@ -35,3 +42,4 @@ class Van
 
 end
 
+# ask Erika the difference between pop and << vs just <<

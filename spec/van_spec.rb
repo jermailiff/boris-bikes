@@ -28,10 +28,11 @@ describe Van do
 
     it 'drops broken bikes to garages to get fixed' do
         bike_holder = Garage.new
+        bike_holder1 = DockingStation.new
         bike = double(:bike, broken?: true)
-        bike_holder.dock bike
-        subject.collect(bike_holder)
-        expect{subject.drop_off(bike_holder)}.to be bike
+        bike_holder1.dock bike
+        subject.collect(bike_holder1)
+        expect(subject.drop_off(bike_holder)).to be_empty
     end
 
 end
