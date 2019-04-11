@@ -31,7 +31,7 @@ van.drop_off garage
 van.bikes
 garage.bikes
 
-# garage.fix_bike
+# garage.fix
 
 # van.collect bike
 # van.drop_off station

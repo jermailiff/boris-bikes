@@ -1,13 +1,14 @@
 require 'garage'
 
 describe 'Garage' do
-    it {is_expected.to respond_to(:fix_bikes)}
+    subject {Garage.new}
+    
+    it {is_expected.to respond_to(:fix)}
 
     it 'fixes broken bikes' do
-        bike = double(:bikes, broken?: true)
-        p subject
-        subject.bikes << bike
+        subject.bikes << double(:bikes, broken: true)
         p subject.bikes
+        expect(subject.fix).to be_falsey
     end
 
 
