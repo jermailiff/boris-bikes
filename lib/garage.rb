@@ -8,6 +8,7 @@ class Garage
 
     def fix 
         @bikes.select {|bike|bike.broken == true}.each do |bike| 
+            p bike.broken
             bike.broken = false
         end
     end
