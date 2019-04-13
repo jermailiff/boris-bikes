@@ -23,7 +23,7 @@ van = Van.new
 
 station.bikes
 
-van.collect station
+van.collect_broken_bikes station
 
 garage = Garage.new
 
@@ -34,8 +34,15 @@ garage.bikes
 garage.fix
 garage.bikes
 
-van.collect garage
-# van.drop_off station
+van.collect_working_bikes garage
+van.drop_off station
+
+garage.bikes
+station.bikes
+
+station.release_bike
+
+
 
 
 

@@ -10,12 +10,18 @@ class Van
         @capacity = DEFAULT_CAPACITY
     end
 
-    def collect(bike_holder)
+    def collect_broken_bikes(bike_holder)
         fail 'Bikes working at #{bike_holder}' if all_bikes_working(bike_holder)
         fail 'Van is full' if full?
-        accept_broken_only(bike_holder)
+        load_broken_bikes(bike_holder)
     end
 
+    def collect_working_bikes(bike_holder)
+        fail 'Bikes are broken at #{bike_holder}' if all_bikes_broken(bike_holder)
+        fail 'Van is full' if full?
+        load_fixed_bikes(bike_holder)
+    end
+        
     def drop_off(bike_holder)
         @bikes.each do |bike|
             @bikes.pop
@@ -29,8 +35,19 @@ class Van
         bike_holder.bikes.all?{|bike| bike.broken? == false}
     end
 
-    def accept_broken_only(bike_holder)
+    def all_bikes_broken(bike_holder)
+        bike_holder.bikes.all?{|bike| bike.broken? == true}
+    end
+
+    def load_broken_bikes(bike_holder)
         bike_holder.bikes.select {|bike|bike.broken? == true}.each do |bike|
+            bike_holder.bikes.pop
+            @bikes << bike
+        end
+    end
+
+    def load_fixed_bikes(bike_holder)
+        bike_holder.bikes.select {|bike|bike.broken? == false}.each do |bike|
             bike_holder.bikes.pop
             @bikes << bike
         end
@@ -41,3 +58,7 @@ class Van
     end
 
 end
+
+# why is my variable not printing in the error string
+# find out from Erika whether it matters if there are no gaurds for dropping bikes off as vans can do what they like
+# how do I amend the collect method now for working bikes directly from garages without making other methods and altering code significantly
