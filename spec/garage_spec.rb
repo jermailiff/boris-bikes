@@ -8,7 +8,6 @@ describe 'Garage' do
 
     it 'fixes broken bikes' do
         subject.bikes << bike
-        subject.bikes
         subject.fix
         expect{subject.bikes.to change('bike', 'broken'.from(true).to(false))}
     end

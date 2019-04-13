@@ -4,8 +4,15 @@ describe Van do
     
     it {is_expected.to respond_to(:collect).with(1).argument}
 
+    it 'collects fixed bikes from garages' do
+        bike_holder = Garage.new
+        bike = double(:bike, broken?: true)
+        bike_holder.bikes << bike
+        expect(subject.collect(bike_holder)).to eq [bike]
+    end
+
     describe '#collect(bike_holder)' do
-        it 'raises an error if the bike is working' do
+        it 'raises an error if the bike is working at station' do
             bike_holder = DockingStation.new
             bike = double(:bike, broken?: false)
             bike_holder.dock bike

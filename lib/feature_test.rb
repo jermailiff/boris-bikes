@@ -29,11 +29,12 @@ garage = Garage.new
 
 van.drop_off garage
 van.bikes
+
+garage.bikes
+garage.fix
 garage.bikes
 
-# garage.fix
-
-# van.collect bike
+van.collect garage
 # van.drop_off station
 
 

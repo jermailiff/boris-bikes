@@ -41,5 +41,3 @@ class Van
     end
 
 end
-
-# ask Erika the difference between pop and << vs just <<
