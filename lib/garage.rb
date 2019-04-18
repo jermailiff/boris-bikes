@@ -1,15 +1,13 @@
 require_relative 'bike'
+require_relative 'bike_container'
 
 class Garage
-    attr_accessor :bikes
-    def initialize
-        @bikes = []
-    end
+    include BikeContainer
 
-    def fix 
-        @bikes.select {|bike|bike.broken == true}.each do |bike| 
-            bike.broken = false
-        end
-    end
+    alias_method :accept_bike, :add_bike
+
+    def fix_bikes
+        bike.fix
+    end 
 
 end

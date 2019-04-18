@@ -30,7 +30,3 @@ module BikeContainer
 
     attr_reader :bikes
 end
-
-# why would you make attr_reader private?
-# what is the difference between raise and fail?
-# why do I not need to use @ when referring to my collection in other methods?

@@ -1,15 +1,16 @@
 require 'garage'
 
+
 describe 'Garage' do
-    subject {Garage.new}
-    let(:bike) { double('bike', 'broken' => [true, false]) }
+    it_behaves_like BikeContainer
 
-    it {is_expected.to respond_to(:fix)}
-
-    it 'fixes broken bikes' do
-        subject.bikes << bike
-        subject.fix
-        expect{subject.bikes.to change('bike', 'broken'.from(true).to(false))}
+    describe 'fix_bikes' do    
+        it 'fixes broken bikes' do
+            bike = double :bike, broken?: true
+            subject.add_bike bike
+            expect(bike).to recieve(:fix)
+            subject.fix_bikes
+        end
     end
 
 
