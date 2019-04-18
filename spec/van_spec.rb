@@ -14,7 +14,7 @@ describe Van do
             bike_holder = DockingStation.new
             bike = double(:bike, broken?: false)
             bike_holder.dock bike
-            expect{subject.collect_broken_bikes(bike_holder)}.to raise_error 'Bikes working at #{bike_holder}'
+            expect{subject.collect_broken_bikes(bike_holder)}.to raise_error "Bikes working at #{bike_holder}"
         end
     end
 
@@ -27,7 +27,7 @@ describe Van do
                 subject.collect_broken_bikes(bike_holder)
             }
             bike_holder.dock bike
-            expect{subject.collect_broken_bikes(bike_holder)}.to raise_error 'Van is full'
+            expect{subject.collect_broken_bikes(bike_holder)}.to raise_error "#{bike_holder} is full"
         end
     end
 

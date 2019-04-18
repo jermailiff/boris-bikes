@@ -11,14 +11,14 @@ class Van
     end
 
     def collect_broken_bikes(bike_holder)
-        fail 'Bikes working at #{bike_holder}' if all_bikes_working(bike_holder)
-        fail 'Van is full' if full?
+        fail "Bikes working at #{bike_holder}" if all_bikes_working(bike_holder)
+        fail "#{bike_holder} is full" if full?
         load_broken_bikes(bike_holder)
     end
 
     def collect_working_bikes(bike_holder)
-        fail 'Bikes are broken at #{bike_holder}' if all_bikes_broken(bike_holder)
-        fail 'Van is full' if full?
+        fail "Bikes are broken at #{bike_holder}" if all_bikes_broken(bike_holder)
+        fail "#{bike_holder} is full" if full?
         load_fixed_bikes(bike_holder)
     end
         
