@@ -15,13 +15,13 @@ describe DockingStation do
     describe 'release_broken_bike' do
 
         it 'raises error when bikes are not broken' do
-            bike = double :bike, working?: true
+            bike = double :bike, broken?: false
             subject.dock bike
-            expect{subject.release_broken_bike}.to raise_error 'Bike is not broken'
+            expect{subject.release_broken_bike}.to raise_error 'No broken bikes available'
         end
 
         it 'releases broken bikes' do
-            bike = double :bike, working?: false
+            bike = double :bike, broken?: true
             subject.dock bike
             expect(subject.release_broken_bike).to be bike
         end
