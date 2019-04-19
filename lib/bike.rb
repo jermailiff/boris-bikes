@@ -7,8 +7,7 @@ class Bike
     end
 
     def working?
-        fail 'Bike is broken' if @broken==true
-        true
+        @broken = false
     end
 
     def report_broken

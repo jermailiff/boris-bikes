@@ -6,49 +6,38 @@ require_relative 'bike_container'
 
 
 
-station(50) = DockingStation.new
+station = DockingStation.new(50)
 
-bike = Bike.new
 bike1 = Bike.new
 bike2 = Bike.new
 
-bike.report_broken
 bike1.report_broken
-bike2.report_broken
 
-station.dock bike 
 station.dock bike1
 station.dock bike2
 
-station.release_bike
+bike1
+bike2 
 
-station.release_bike
- 
+station.release_broken_bike 
 
 van = Van.new (50)
+garage = Garage.new
 
-# station.bikes
+van.load bike1
+van.unload bike1
 
-# van.collect_broken_bikes station
+garage.accept bike1
+garage.fix_bikes
+garage.release_working_bike
 
-# garage = Garage.new
-
-# van.drop_off garage
-# van.bikes
-
-# garage.bikes
-# garage.fix
-# garage.bikes
-
-# van.collect_working_bikes garage
-# van.drop_off station
-
-# garage.bikes
-# station.bikes
-
-# station.release_bike
+van.load bike1
 
 
+
+van.unload bike1
+
+station.dock bike1
 
 
 
