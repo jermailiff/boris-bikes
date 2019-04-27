@@ -61,6 +61,6 @@ So that I can manage broken bikes and not disappoint users,
 I'd like vans to collect working bikes from garages and distribute them to docking stations.
 
 ### How to use programme
-I have created a feature test file where I have added all the related features to the user stories to ensure the infrastructure works, you can add or tweak as you wise but please do leave comments.
+I have created a ```lib/feature_test.rb``` test file where I have added all the related features to the user stories to ensure the infrastructure works, you can add or tweak as you wise but please do leave comments.
 
 Thanks you all! =] 
